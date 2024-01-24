@@ -23,14 +23,16 @@ async function main() {
   console.log(
     'Welcome to Alchemy! Type "/exit" to exit, "/list" to list your known items.'
   );
-  console.log("You start with:");
+  console.log("\nYou start with:");
   for (const item of obtained) {
     console.log(item.emoji, capitalize(item.concept));
   }
-  console.log("Combine two items with +. Try now with: water + fire");
+  console.log("\nCombine two items with +. Try now with: water + fire");
+
+  let first = true;
 
   outer: while (true) {
-    const query = await readline.question("> ");
+    const query = await readline.question("\n> ");
     if (query === "/exit") {
       break;
     }
@@ -62,7 +64,7 @@ async function main() {
     const concept = conceptResponse.response
       .trim()
       .toLowerCase()
-      .replaceAll(/["'\.]/g, "");
+      .replaceAll(/["'\.!?]/g, "");
     if (concept.length > 50) {
       console.log(`Response too long (${concept.length}):`, concept);
       continue;
@@ -87,7 +89,12 @@ async function main() {
       continue;
     }
 
-    console.log(emoji, capitalize(concept));
+    console.log("You got:", emoji, capitalize(concept));
+    if (first) {
+      console.log(`You can now use ${concept} in future combinations!`);
+      first = false;
+    }
+
     obtained.push({ concept, emoji });
     known.add(concept);
   }
