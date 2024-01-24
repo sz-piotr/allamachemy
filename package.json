@@ -1,0 +1,21 @@
+{
+  "name": "allamachemy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "ts-node --esm src/index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/node": "^20.11.6",
+    "ollama": "^0.4.1"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "ollama@0.4.1": "patches/ollama@0.4.1.patch"
+    }
+  }
+}

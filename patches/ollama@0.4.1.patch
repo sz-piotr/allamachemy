@@ -1,0 +1,15 @@
+diff --git a/package.json b/package.json
+index be2479d5b7c15c60862df28a8b4f911772e260bd..99769bb721b4b0f025227b04d7da8881bd2a0fd3 100644
+--- a/package.json
++++ b/package.json
+@@ -3,8 +3,8 @@
+   "name": "ollama",
+   "version": "0.4.1",
+   "description": "Ollama Javascript library",
+-  "main": "dist/index.js",
+-  "types": "dist/index.d.ts",
++  "main": "dist/src/index.js",
++  "types": "dist/src/index.d.ts",
+   "scripts": {
+     "format": "prettier --write .",
+     "test": "jest --config=jest.config.cjs ./test/*",
