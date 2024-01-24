@@ -27,7 +27,7 @@ async function main() {
   for (const item of obtained) {
     console.log(item.emoji, capitalize(item.concept));
   }
-  console.log("You can combine two items with +. Try now with: water + fire");
+  console.log("Combine two items with +. Try now with: water + fire");
 
   outer: while (true) {
     const query = await readline.question("> ");
@@ -40,7 +40,7 @@ async function main() {
       }
       continue;
     }
-    const items = query.split("+").map((x) => x.trim());
+    const items = query.split("+").map((x) => x.trim().toLowerCase());
     if (items.length !== 2) {
       console.log("Please enter two items separated by a +");
       continue;
